@@ -2,19 +2,19 @@
 
 ## Getting Started
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 ```cmd
 git clone https://github.com/randymxd06/Curso_NestJS_Microservicios.git
 ```
 
-### 2. Instalar dependencias
+### 2. Install dependencies
 
 ```cmd
 npm install
 ```
 
-### 3. Crear un archivo `.env` basado en el `env.template`
+### 3. Create a file `.env` based on it `env.template`
 
 ```.env
 PORT=3001
@@ -29,13 +29,13 @@ PORT=3001
 DATABASE_URL="file:./dev.db"
 ```
 
-### 4. Ejecutar migración de prisma
+### 4. Execute prisma migration
 
 ```cmd
 npx prisma migrate dev
 ```
 
-### 5. Levantar proyecto
+### 5. Raise project
 
 ```cmd
 npm run start:dev

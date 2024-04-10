@@ -1,12 +1,33 @@
-## Cliente Gateway
-El gateway es el punto de comunicación entre nuestros clientes y nuestros servicios. Es el encargado de recibir las peticiones, enviarlas a los servicios correspondientes y devolver la respuesta al cliente.
+# Cliente Gateway
 
+Gateway is the point of communication between our clients and our services. He is responsible for receiving the requests, sends it to the corresponding services and returns the client's response.
 
-## Dev
+## Getting Started
 
-1. Clonar el repositorio
-2. Instalar dependencias
-3. Crear un archivo `.env` basado en el `env.template`
-4. Tener levantados los microservicios que se van a consumir
-5. Levantar proyecto con `npm run start:dev`
+### 1. Clone the repository
 
+```bash
+git clone https://github.com/randymxd06/Curso_NestJS_Microservicios.git
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create a file `.env` based on it `env.template`
+
+```.env
+PORT=3000
+PRODUCTS_MICROSERVICE_HOST=localhost
+PRODUCTS_MICROSERVICE_PORT=3001
+```
+
+### 4. Have the microservices that will be consumed raised
+
+### 5. Raise project
+
+```bash
+npm run start:dev
+```
