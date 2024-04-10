@@ -20,7 +20,13 @@ npm install
 
 ```
 
-### 4. Raise project
+### 4. Raise the database with docker compose
+
+```bash
+docker compose up -d
+```
+
+### 5. Raise project
 
 ```bash
 npm run start:dev
