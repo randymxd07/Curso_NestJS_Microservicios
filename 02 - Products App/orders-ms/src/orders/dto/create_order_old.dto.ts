@@ -2,7 +2,7 @@ import { OrderStatus } from "@prisma/client";
 import { IsBoolean, IsEnum, IsNumber, IsOptional, IsPositive } from "class-validator";
 import { OrderStatusList } from "../enum";
 
-export class CreateOrderDto {
+export class CreateOrderOldDto {
 
     @IsNumber()
     @IsPositive()
