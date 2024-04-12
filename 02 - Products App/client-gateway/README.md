@@ -22,6 +22,8 @@ npm install
 PORT=3000
 PRODUCTS_MICROSERVICE_HOST=localhost
 PRODUCTS_MICROSERVICE_PORT=3001
+ORDERS_MICROSERVICE_HOST=localhost
+ORDERS_MICROSERVICE_PORT=3002
 ```
 
 ### 4. Have the microservices that will be consumed raised
