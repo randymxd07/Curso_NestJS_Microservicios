@@ -47,7 +47,13 @@ npm install @prisma/client
 npx prisma migrate dev --name init
 ```
 
-### 7. Raise project
+### 7. Raise NATS Sever
+
+```bash
+docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats
+```
+
+### 8. Raise project
 
 ```bash
 npm run start:dev

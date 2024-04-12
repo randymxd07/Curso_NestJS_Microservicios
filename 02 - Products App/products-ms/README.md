@@ -35,7 +35,13 @@ DATABASE_URL="file:./dev.db"
 npx prisma migrate dev
 ```
 
-### 5. Raise project
+### 5. Raise NATS Sever
+
+```bash
+docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats
+```
+
+### 6. Raise project
 
 ```cmd
 npm run start:dev

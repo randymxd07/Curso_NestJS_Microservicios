@@ -26,9 +26,15 @@ ORDERS_MICROSERVICE_HOST=localhost
 ORDERS_MICROSERVICE_PORT=3002
 ```
 
-### 4. Have the microservices that will be consumed raised
+### 4. Raise NATS Sever
 
-### 5. Raise project
+```bash
+docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats
+```
+
+### 5. Have the microservices that will be consumed raised
+
+### 6. Raise project
 
 ```bash
 npm run start:dev
