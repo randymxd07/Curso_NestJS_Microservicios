@@ -20,10 +20,7 @@ npm install
 
 ```.env
 PORT=3000
-PRODUCTS_MICROSERVICE_HOST=localhost
-PRODUCTS_MICROSERVICE_PORT=3001
-ORDERS_MICROSERVICE_HOST=localhost
-ORDERS_MICROSERVICE_PORT=3002
+NATS_SERVERS="nats://localhost:4222,nats://localhost:4223"
 ```
 
 ### 4. Raise NATS Sever
