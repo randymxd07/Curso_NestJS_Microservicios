@@ -10,12 +10,12 @@ services:
   client-gateway:
     build: ./client-gateway
     ports:
-      - ${CLIENT_GATEWAY_PORT}:${CLIENT_GATEWAY_PORT}
+      - ${CLIENT_GATEWAY_PORT}:3000
     volumes:
       - ./client-gateway/src:/usr/src/app/src
     command: npm run start:dev
     environment:
-      - PORT=${CLIENT_GATEWAY_PORT}
+      - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
   
   products-ms:
@@ -41,7 +41,7 @@ services:
       - NATS_SERVERS=nats://nats-server:4222
   
   orders-db:
-    container_name: orders_database
+    container_name: ordersdb
     image: postgres:16.2
     restart: always
     volumes:
