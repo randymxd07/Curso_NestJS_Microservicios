@@ -3,6 +3,10 @@
 /node_modules
 /build
 
+
+postgres/
+
+
 # Logs
 logs
 *.log
@@ -54,9 +58,3 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-package-lock.json
-yarn-lock.json
-pnpm-lock.yaml
-
-postgres/

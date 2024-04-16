@@ -1,5 +1,6 @@
-export * from './change_order_status.dto';
-export * from './create_order.dto';
-export * from './order_items.dto';
-export * from './order_pagination.dto';
-export * from './update_order.dto';
+
+export * from './change-order-status.dto';
+export * from './create-order.dto';
+export * from './order-item.dto';
+export * from './paid-order.dto';
+export * from './update-order.dto';
