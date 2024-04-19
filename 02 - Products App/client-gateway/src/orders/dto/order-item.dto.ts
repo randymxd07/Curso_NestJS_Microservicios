@@ -1,7 +1,6 @@
 import { IsNumber, IsPositive } from 'class-validator';
 
 export class OrderItemDto {
-  
   @IsNumber()
   @IsPositive()
   productId: number;
@@ -13,5 +12,4 @@ export class OrderItemDto {
   @IsNumber()
   @IsNumber()
   price: number;
-  
 }
