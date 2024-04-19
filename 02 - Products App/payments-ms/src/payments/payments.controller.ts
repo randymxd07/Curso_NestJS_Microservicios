@@ -6,8 +6,8 @@ import { Request, Response } from 'express';
 
 @Controller('payments')
 export class PaymentsController {
-  constructor(private readonly paymentsService: PaymentsService) {}
 
+  constructor(private readonly paymentsService: PaymentsService) {}
 
   // @Post('create-payment-session')
   @MessagePattern('create.payment.session')
@@ -31,13 +31,9 @@ export class PaymentsController {
     }
   }
 
-
   @Post('webhook')
   async stripeWebhook(@Req() req: Request, @Res() res: Response) {
     return this.paymentsService.stripeWebhook(req, res);
   }
-
-
-
 
 }

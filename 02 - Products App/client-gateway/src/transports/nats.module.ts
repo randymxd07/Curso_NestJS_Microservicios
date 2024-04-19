@@ -26,4 +26,4 @@ import { NATS_SERVICE, envs } from 'src/config';
     ]),
   ],
 })
-export class NatsModule {}
+export class NatsModule { }

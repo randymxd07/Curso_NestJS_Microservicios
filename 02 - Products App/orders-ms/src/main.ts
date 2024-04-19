@@ -5,8 +5,8 @@ import { envs } from './config';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const logger = new Logger('OrdersMS-Main');
 
+  const logger = new Logger('OrdersMS-Main');
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
@@ -26,6 +26,8 @@ async function bootstrap() {
   );
 
   await app.listen();
+
   logger.log(`Orders Microservice running on port ${envs.port}`);
+  
 }
 bootstrap();

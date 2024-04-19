@@ -7,6 +7,7 @@ import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller('products')
 export class ProductsController {
+  
   constructor(private readonly productsService: ProductsService) {}
 
   // @Post()

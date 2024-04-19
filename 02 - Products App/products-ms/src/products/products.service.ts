@@ -8,6 +8,7 @@ import { PaginationDto } from 'src/common';
 
 @Injectable()
 export class ProductsService extends PrismaClient implements OnModuleInit {
+
   private readonly logger = new Logger('ProductsService');
 
   onModuleInit() {
@@ -22,8 +23,8 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    const { page, limit } = paginationDto;
 
+    const { page, limit } = paginationDto;
     const totalPages = await this.product.count({ where: { available: true } });
     const lastPage = Math.ceil(totalPages / limit);
 
@@ -41,9 +42,11 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
         lastPage: lastPage,
       },
     };
+
   }
 
   async findOne(id: number) {
+
     const product = await this.product.findFirst({
       where: { id, available: true },
     });
@@ -56,9 +59,11 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     }
 
     return product;
+
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
+
     const { id: __, ...data } = updateProductDto;
 
     await this.findOne(id);
@@ -67,9 +72,11 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
       where: { id },
       data: data,
     });
+
   }
 
   async remove(id: number) {
+
     await this.findOne(id);
 
     // return this.product.delete({
@@ -84,9 +91,11 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     });
 
     return product;
+
   }
 
   async validateProducts(ids: number[]) {
+
     ids = Array.from(new Set(ids));
 
     const products = await this.product.findMany({
@@ -104,8 +113,8 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
       });
     }
 
-
     return products;
 
   }
+  
 }

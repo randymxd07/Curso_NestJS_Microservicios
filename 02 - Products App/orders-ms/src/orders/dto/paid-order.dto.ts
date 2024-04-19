@@ -1,6 +1,5 @@
 import { IsString, IsUUID, IsUrl } from 'class-validator';
 
-
 export class PaidOrderDto {
 
   @IsString()
@@ -13,6 +12,5 @@ export class PaidOrderDto {
   @IsString()
   @IsUrl()
   receiptUrl: string;
-
 
 }

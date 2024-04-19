@@ -4,7 +4,6 @@ import { NatsModule } from 'src/transports/nats.module';
 
 @Module({
   controllers: [ProductsController],
-  providers: [],
   imports: [NatsModule],
 })
 export class ProductsModule {}

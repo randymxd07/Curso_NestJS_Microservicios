@@ -20,9 +20,10 @@ import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('products')
 export class ProductsController {
+
   constructor(
     @Inject(NATS_SERVICE) private readonly client: ClientProxy,
-  ) {}
+  ) { }
 
   @Post()
   createProduct(@Body() createProductDto: CreateProductDto) {
@@ -42,6 +43,7 @@ export class ProductsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
+
     return this.client.send({ cmd: 'find_one_product' }, { id }).pipe(
       catchError((err) => {
         throw new RpcException(err);
@@ -58,6 +60,7 @@ export class ProductsController {
     // } catch (error) {
     //   throw new RpcException(error);
     // }
+
   }
 
   @Delete(':id')

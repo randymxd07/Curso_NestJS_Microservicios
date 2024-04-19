@@ -1,6 +1,4 @@
 import { Controller, Get, Post, Body, Param, Inject, ParseUUIDPipe, Query, Patch } from '@nestjs/common';
-
-
 import { NATS_SERVICE } from 'src/config';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { CreateOrderDto, OrderPaginationDto, StatusDto } from './dto';
@@ -63,7 +61,6 @@ export class OrdersController {
     }
   }
 
-
   @Patch(':id')
   changeStatus(
     @Param('id', ParseUUIDPipe ) id: string,
@@ -75,7 +72,5 @@ export class OrdersController {
       throw new RpcException(error);
     }
   }
-
-
 
 }

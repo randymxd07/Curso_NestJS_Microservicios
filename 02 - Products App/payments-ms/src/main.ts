@@ -4,7 +4,11 @@ import { AppModule } from './app.module';
 import { envs } from './config';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
+/**--------------------------------------------------------------------
+ * THIS IS A HYBRID APPLICATION BETWEEN WEB SERVICE AND MICROSERVICE
+-----------------------------------------------------------------------*/
 async function bootstrap() {
+
   const logger = new Logger('Payments-ms');
 
   const app = await NestFactory.create(AppModule, {
@@ -27,11 +31,11 @@ async function bootstrap() {
     inheritAppConfig: true
   })
 
-
   await app.startAllMicroservices();
   
   await app.listen(envs.port);
 
   logger.log(`Payments Microservice running on port ${envs.port}`);
+
 }
 bootstrap();

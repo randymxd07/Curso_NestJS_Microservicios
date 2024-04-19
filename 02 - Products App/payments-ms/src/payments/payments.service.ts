@@ -15,9 +15,8 @@ export class PaymentsService {
     @Inject(NATS_SERVICE) private readonly client: ClientProxy
   ) {}
 
-
-
   async createPaymentSession(paymentSessionDto: PaymentSessionDto) {
+
     const { currency, items, orderId } = paymentSessionDto;
 
     const lineItems = items.map((item) => {
@@ -27,14 +26,14 @@ export class PaymentsService {
           product_data: {
             name: item.name,
           },
-          unit_amount: Math.round(item.price * 100), // 20 dólares 2000 / 100 = 20.00 // 15.0000
+          unit_amount: Math.round(item.price * 100),
         },
         quantity: item.quantity,
       };
     });
 
     const session = await this.stripe.checkout.sessions.create({
-      // Colocar aquí el ID de mi orden
+      // PLACE HERE THE ID OF MY ORDER
       payment_intent_data: {
         metadata: {
           orderId: orderId
@@ -52,44 +51,54 @@ export class PaymentsService {
       successUrl: session.success_url,
       url: session.url,
     }
+
   }
 
   async stripeWebhook(req: Request, res: Response) {
-    const sig = req.headers['stripe-signature'];
 
+    const sig = req.headers['stripe-signature'];
     let event: Stripe.Event;
 
-    // Real
     const endpointSecret = envs.stripeEndpointSecret;
 
     try {
+
       event = this.stripe.webhooks.constructEvent(
         req['rawBody'],
         sig,
         endpointSecret,
       );
+
     } catch (err) {
+
       res.status(400).send(`Webhook Error: ${err.message}`);
       return;
+
     }
     
     switch( event.type ) {
+
       case 'charge.succeeded': 
+
         const chargeSucceeded = event.data.object;
+
         const payload = {
           stripePaymentId: chargeSucceeded.id,
           orderId: chargeSucceeded.metadata.orderId,
           receiptUrl: chargeSucceeded.receipt_url,
         }
 
-        // this.logger.log({ payload });
         this.client.emit('payment.succeeded', payload );
+
       break;
       
       default:
         console.log(`Event ${ event.type } not handled`);
+        
     }
 
     return res.status(200).json({ sig });
+
   }
+  
 }
