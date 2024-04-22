@@ -1,0 +1,54 @@
+#================
+# DEPENDENCIAS
+#================
+FROM node:21-alpine3.19 as deps
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+
+
+#=====================================
+# BUILDER - CONSTRUYE LA APLICACION
+#=====================================
+FROM node:21-alpine3.19 as build
+
+WORKDIR /usr/src/app
+
+# COPIAR DE DEPS, LOS MODULOS DE NODE
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+
+# COPIAR TODO EL CODIGO FUENTE DE LA APLICACION
+COPY . .
+
+# SE PUEDE EJECUTAR LAS PRUEBAS EN ESTE PUNTO RUN npm run test
+
+RUN npm run build
+
+RUN npm ci -f --only-production && npm cache clean --force
+
+
+
+#===================================
+# CREAR LA IMAGEN FINAL DE DOCKER
+#===================================
+FROM node:21-alpine3.19 as prod
+
+WORKDIR /usr/src/app
+
+COPY --from=build /usr/src/app/node_modules ./node_modules
+
+# COPIAR LA CARPETA DE DISTRIBUCION
+COPY --from=build /usr/src/app/dist ./dist
+
+ENV NODE_ENV=production
+
+# CREAMOS UN USUARIO LLAMADO NODE Y NOS MOVEMOS A ESE USUARIO CON PERMISOS SOLO DE EJECUCION
+USER node
+
+EXPOSE 3000
+
+CMD ["node", "dist/main.js"]

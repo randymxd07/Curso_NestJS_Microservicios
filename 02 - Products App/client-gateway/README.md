@@ -44,3 +44,9 @@ docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats
 ```bash
 npm run start:dev
 ```
+
+### 7. Run the following command
+
+```bash
+docker build -f dockerfile.prod -t client-gateway .
+```
