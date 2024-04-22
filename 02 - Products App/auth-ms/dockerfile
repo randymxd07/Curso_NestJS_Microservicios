@@ -8,4 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3002
+RUN npx prisma generate
+
+EXPOSE 3004
