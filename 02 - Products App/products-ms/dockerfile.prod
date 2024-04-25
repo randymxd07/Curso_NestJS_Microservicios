@@ -30,6 +30,8 @@ RUN npm run build
 
 RUN npm ci -f --only-production && npm cache clean --force
 
+RUN npx prisma generate
+
 
 
 #=================================
@@ -41,8 +43,9 @@ WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/node_modules ./node_modules
 
-# COPY THE DISTRIBUTION FOLDER
+# COPY THE DISTRIBUTION AND PRISMA FOLDER
 COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/prisma ./prisma
 
 ENV NODE_ENV=production
 
