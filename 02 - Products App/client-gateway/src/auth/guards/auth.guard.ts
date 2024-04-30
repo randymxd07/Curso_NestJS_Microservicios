@@ -14,7 +14,7 @@ import { NATS_SERVICE } from 'src/config';
 export class AuthGuard implements CanActivate {
 
     constructor(
-        @Inject(NATS_SERVICE) private readonly client: ClientProxy
+        @Inject(NATS_SERVICE) private readonly client: ClientProxy,
     ){}
 
     async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -31,9 +31,9 @@ export class AuthGuard implements CanActivate {
 
             const { user, token:newToken } = await firstValueFrom(
                 this.client.send('auth.verify.user', token)
-            )
+            );
 
-            request['user'] = user
+            request['user'] = user;
 
             request['token'] = newToken;
 

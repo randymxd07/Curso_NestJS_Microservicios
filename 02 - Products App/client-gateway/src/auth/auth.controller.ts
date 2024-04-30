@@ -32,8 +32,8 @@ export class AuthController {
     );
   }
 
-  @UseGuards(AuthGuard)
   @Get('verify')
+  @UseGuards(AuthGuard)
   verifyUser(@User() user: CurrentUser, @Token() token: string) {
     return { user, token };
     // return this.client.send('auth.verify.user', {}).pipe(
