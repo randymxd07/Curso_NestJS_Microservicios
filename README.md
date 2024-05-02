@@ -1,36 +1,36 @@
-# Microservicios: Guía Rápida
+# Microservices: Quick Guide
 
 <br/>
 
-## ¿Qué son los Microservicios?
+## What are Microservices?
 
-Los microservicios son una arquitectura de diseño de software donde una aplicación se compone de pequeños servicios independientes, cada uno ejecutando un proceso único y comunicándose a través de protocolos ligeros.
-
-<br/>
-
-## ¿Cuándo es Conveniente Usar una Arquitectura de Microservicios?
-
-Usar una arquitectura de microservicios puede ser conveniente en varias situaciones:
-
-1. **Escalabilidad**: Los microservicios permiten escalar partes específicas de una aplicación de forma independiente, facilitando la gestión eficiente de los recursos.
-
-2. **Desarrollo Ágil**: Equipos pequeños pueden trabajar de manera independiente en diferentes microservicios, acelerando el desarrollo y permitiendo actualizaciones más frecuentes.
-
-3. **Tecnologías Heterogéneas**: Si una aplicación necesita utilizar diferentes tecnologías para diferentes partes del sistema, los microservicios permiten elegir la tecnología más adecuada para cada uno.
-
-4. **Resiliencia y Tolerancia a Fallos**: Al separar los componentes en microservicios independientes, los fallos en un servicio no afectarán necesariamente a otros, aumentando la resiliencia del sistema en general.
-
-5. **Facilidad de Mantenimiento**: Al dividir una aplicación en componentes más pequeños y manejables, el mantenimiento y la depuración pueden ser más fáciles, ya que los cambios en un servicio no afectarán a otros.
+Microservices are a software design architecture where an application is composed of small independent services, each running a single process and communicating via lightweight protocols.
 
 <br/>
 
-## Desventajas Potenciales
+## When is it convenient to use a Microservices Architecture?
 
-Es importante tener en cuenta algunas desventajas potenciales de los microservicios, como la complejidad en la gestión de la comunicación entre microservicios, el aumento en la complejidad operativa, el posible sobrecoste de las operaciones de red y la necesidad de una cuidadosa planificación y diseño para evitar problemas de coordinación entre servicios.
+Using a microservices architecture can be convenient in several situations:
+
+1. **Scalability**: Microservices allow specific parts of an application to scale independently, facilitating efficient management of resources.
+
+2. **Agile Development**: Small teams can work independently on different microservices, accelerating development and allowing for more frequent updates.
+
+3. **Heterogeneous Technologies**: If an application needs to use different technologies for different parts of the system, microservices allow you to choose the most appropriate technology for each one.
+
+4. **Resilience and Fault Tolerance**: By separating components into independent microservices, failures in one service will not necessarily affect others, increasing the resilience of the overall system.
+
+5. **Maintainability**: By breaking an application into smaller, more manageable components, maintenance and debugging can be easier, since changes to one service will not affect others.
 
 <br/>
 
-## Recursos Adicionales
+## Potential Disadvantages
 
-- [Patrones de Diseño de Microservicios](https://martinfowler.com/articles/microservices.html) - Artículo de Martin Fowler sobre patrones de diseño de microservicios.
-- [Libro "Building Microservices" por Sam Newman](https://samnewman.io/books/building_microservices/) - Una guía práctica para diseñar, construir y operar sistemas de microservicios.
+It is important to keep in mind some potential disadvantages of microservices, such as the complexity in managing communication between microservices, the increase in operational complexity, the possible overhead of network operations, and the need for careful planning and design to avoid coordination problems between services.
+
+<br/>
+
+## Additional Resources
+
+- [Microservices Design Patterns](https://martinfowler.com/articles/microservices.html) - Martin Fowler's article on microservices design patterns.
+- [Book "Building Microservices" by Sam Newman](https://samnewman.io/books/building_microservices/) - A practical guide to designing, building, and operating microservices systems.
