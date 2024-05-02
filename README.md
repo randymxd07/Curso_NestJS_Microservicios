@@ -34,7 +34,3 @@ Es importante tener en cuenta algunas desventajas potenciales de los microservic
 
 - [Patrones de Diseño de Microservicios](https://martinfowler.com/articles/microservices.html) - Artículo de Martin Fowler sobre patrones de diseño de microservicios.
 - [Libro "Building Microservices" por Sam Newman](https://samnewman.io/books/building_microservices/) - Una guía práctica para diseñar, construir y operar sistemas de microservicios.
-
----
-
-Este README.md es una guía rápida sobre los microservicios. Si tienes más preguntas o necesitas más información, ¡no dudes en preguntar!
